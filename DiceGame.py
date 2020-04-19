@@ -59,7 +59,14 @@ class DiceGame:
             'Face value: ' + str(self.die1.faceValue + self.die2.faceValue)
         ]))
 
+def play(game):
+    game.play()
+    shouldPlayAgain = input('Play again? (y/n) ')
+    shouldPlayAgain = shouldPlayAgain.lower()
+    if shouldPlayAgain == 'y' or shouldPlayAgain == 'yes':
+        play(game)
+
 # https://docs.python.org/3/library/__main__.html
 if __name__ == "__main__":
     game = DiceGame()
-    game.play()
+    play(game)
